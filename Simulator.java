@@ -23,4 +23,9 @@ public class Simulator{
 	public void setLogger(Logger logger){
 		this.logger = logger;
 	}
+	
+	public Result run(){
+		
+		return result;
+	}
 }
