@@ -1,18 +1,18 @@
 public class Result{
-	private Horse theBest;
+	private int id;
 	private double winningChance;
 
-	public Result(Horse theBest, double winningChance){
-		this.theBest = theBest;
+	public Result(int id, double winningChance){
+		this.id = id;
 		this.winningChance = winningChance;
 	}
 	
-	public Horse getTheBest(){
-		return theBest;
+	public int getId(){
+		return id;
 	}
 	
-	public void setTheBest(Horse theBest){
-		this.theBest = theBest;
+	public void setId(int id){
+		this.id = id;
 	}
 	
 	public double getWinningChance(){
