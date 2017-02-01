@@ -1,21 +1,26 @@
 public class Main{	
 	
-	static String[] horseNames = new String[]{"Kábó", "Kese", "Feka", "Void", "Emmavaccon", 								"Arthas", "Tyrion", "Larakroft"};
+	static String[] horseNames = new String[]{"Kábó", "Kese", "Húskloffo-ló", "Void", "Emmavaccon", 
+							"Hason-ló", "Poro-ló", "Larakroft"};
+	static Horse[] racers;	
+	
 	public static void main(String[] args){
 
 		int simulationCount = Integer.parseInt(args[0]);
-		
-		Horse[] racers = new Horse[8];
 
+		racers = new Horse[8];
 		for(int i = 0; i < racers.length; i++){
 			racers[i] = new Horse(i, horseNames[i]);
 			System.out.println(racers[i].getId() + " - " + racers[i].getName());
 		}
-
-		System.out.println(simulationCount + 15);
+		Simulation sim = generateSimulation(simulationCount);
 
 	}	
-
 	
+	public static Simulation generateSimulation(int rounds){
+		Simulation sim = new Simulation(racers, rounds);
+		sim.simulateRace();
+		return sim;
+	}
 
 }
