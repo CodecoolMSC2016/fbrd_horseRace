@@ -42,4 +42,8 @@ public class Simulation {
 		return winnerIds;
 	}
 	
+	public int[] getWinnerIds(){
+		return winnerIds;
+	}
+	
 }

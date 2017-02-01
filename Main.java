@@ -11,8 +11,8 @@ public class Main{
 		racers = new Horse[8];
 		for(int i = 0; i < racers.length; i++){
 			racers[i] = new Horse(i, horseNames[i]);
-			System.out.println(racers[i].getId() + " - " + racers[i].getName());
 		}
+
 		Simulation sim = generateSimulation(simulationCount);
 
 	}	
