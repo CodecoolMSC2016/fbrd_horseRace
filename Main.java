@@ -1,10 +1,10 @@
 public class Main{	
 	
+	static String[] horseNames = new String[]{"Kábó", "Kese", "Feka", "Void", "Emmavaccon", 								"Arthas", "Tyrion", "Larakroft"};
 	public static void main(String[] args){
 
-		int simulationCount = Integer.decode(args[0]);
-		String[] horseNames = new String[]{"Kábó", "Kese", "Feka", "Void", "Emmavaccon", 								"Arthas", "Tyrion", "Larakroft"};
-	
+		int simulationCount = Integer.parseInt(args[0]);
+		
 		Horse[] racers = new Horse[8];
 
 		for(int i = 0; i < racers.length; i++){
@@ -12,7 +12,7 @@ public class Main{
 			System.out.println(racers[i].getId() + " - " + racers[i].getName());
 		}
 
-		System.out.println((simulationCount + 15));
+		System.out.println(simulationCount + 15);
 
 	}	
 
