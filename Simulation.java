@@ -21,6 +21,7 @@ public class Simulation {
 		int id;
 		for(int i = 0; i < rounds; i++){
 			id = ThreadLocalRandom.current().nextInt(0, 7 + 1);
+			winnerIds[i] = id;
 			try{
 				generateData(id, horses[id].getName());
 			}catch(IOException e)

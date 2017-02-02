@@ -39,11 +39,13 @@ public class Simulator{
 			}
 		}
 		
+		//jó
 		return bestId;
 	}
 	
 	public double countWinningChance(){
 		
+		int[] winnerIds = simulation.getWinnerIds();		
 		int maxi = 0;
 		for(int i = 0; i < counterList.length; i++){
 			if(counterList[maxi] < counterList[i]){
@@ -51,12 +53,10 @@ public class Simulator{
 			}
 		}
 		int numOfWinOfTheBest = counterList[maxi];
-		
-		return numOfWinOfTheBest / counterList.length;
+		return numOfWinOfTheBest / (double)winnerIds.length;
 	}
 	
 	public Result run(){	
-		System.out.println(countWinningChance());
 		Result result = new Result(findBestId(), countWinningChance());
 		return result;
 	}

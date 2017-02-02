@@ -6,7 +6,15 @@ public class Main{
 	
 	public static void main(String[] args){
 
-		int simulationCount = Integer.parseInt(args[0]);
+		Logger logger = new Logger();
+		int simulationCount;
+
+		if(args.length > 0)
+			simulationCount = Integer.parseInt(args[0]);
+		else{
+			logger.log("<System>: ", "No arguments given, running with default 50 rounds.\n");
+			simulationCount = 50;
+		}
 
 		racers = new Horse[8];
 		for(int i = 0; i < racers.length; i++){
@@ -14,6 +22,9 @@ public class Main{
 		}
 
 		Simulation sim = generateSimulation(simulationCount);
+		Simulator simltr = new Simulator(sim, logger);
+		simltr.run();
+		
 
 	}	
 	
