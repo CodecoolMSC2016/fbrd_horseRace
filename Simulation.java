@@ -15,6 +15,10 @@ public class Simulation {
 		this.rounds = rounds;
 		filePath = "simulatedRuns.csv";
 		winnerIds = new int[rounds];
+	}
+	
+	public Simulation(int[] winnerIds){
+		this.winnerIds = winnerIds;
 	}	
 	
 	public void simulateRace() {
