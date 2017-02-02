@@ -3,17 +3,37 @@ public class Main{
 	static String[] horseNames = new String[]{"Kábó", "Kese", "Húskloffo-ló", "Void", "Emmavaccon", 
 							"Hason-ló", "Poro-ló", "Larakroft"};
 	static Horse[] racers;	
-	
+	static int simulationCount;	
+		
 	public static void main(String[] args){
 
 		Logger logger = new Logger();
-		int simulationCount;
-
-		if(args.length > 0)
-			simulationCount = Integer.parseInt(args[0]);
+		boolean shouldDump = false;
+		
+		if(args.length > 0){
+			if(args[0].equalsIgnoreCase("-d")){
+				shouldDump = true;
+				logger.log("<System>: ", "No arguments given, running with default 50 rounds.\n");
+				logger.log("<System>: ", "DEBUG MODE ENABLED!\n");
+				simulationCount = 50;
+			}
+			else{
+				simulationCount = Integer.parseInt(args[0]);
+			}
+		}
 		else{
 			logger.log("<System>: ", "No arguments given, running with default 50 rounds.\n");
 			simulationCount = 50;
+		}
+
+		if(args.length == 2){
+			if(args[1].equalsIgnoreCase("-d")){
+				shouldDump = true;
+			}
+			else{
+				simulationCount = Integer.parseInt(args[1]);
+			}
+		
 		}
 
 		racers = new Horse[8];
@@ -24,6 +44,11 @@ public class Main{
 		Simulation sim = generateSimulation(simulationCount);
 		Simulator simltr = new Simulator(sim, logger);
 		simltr.run();
+
+
+		if(shouldDump){
+			logger.dumpArray(sim.getWinnerIds());
+		}
 		
 
 	}	
