@@ -9,6 +9,7 @@ public class Main{
 
 		Logger logger = new Logger();
 		boolean shouldDump = false;
+		Result result;
 		
 		if(args.length > 0){
 			if(args[0].equalsIgnoreCase("-d")){
@@ -43,13 +44,15 @@ public class Main{
 
 		Simulation sim = generateSimulation(simulationCount);
 		Simulator simltr = new Simulator(sim, logger);
-		simltr.run();
-
-
+		
 		if(shouldDump){
 			logger.dumpArray(sim.getWinnerIds());
 		}
 		
+		result = simltr.run();
+		logger.log("<RESULT>: ", "You should bet on " + racers[result.getId()].getName() +
+				 " he has " + result.getWinningChance() * 100 + "%" + " chance to win.\n");
+
 
 	}	
 	
